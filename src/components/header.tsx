@@ -13,7 +13,7 @@ function MyHeader(){
         <>
         <div className="header">
             <Link to="/"><h1>MateBudget</h1></Link>
-            <button onClick={toggleForm}>Nuevo movimiento</button>
+            <button onClick={toggleForm}>Añadir movimiento</button>
         </div>
             {showForm && <Form />}
         </>

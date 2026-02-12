@@ -10,11 +10,11 @@ interface FormData {
 
 const Form = () => {
   const [formData, setFormData] = useState<FormData>({
-    type: '',
+    type: 'gasto',
     amount: '',
     concept: '',
     category: 'ninguna',
-    date: '',
+    date: new Date().toISOString().split('T')[0],
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -44,13 +44,28 @@ const Form = () => {
         <div className="form">
             <form onSubmit={handleSubmit}>
             <div>
-                <label>Tipo</label>
-                <input
-                type="text"
-                name="type"
-                value={formData.type}
-                onChange={handleChange}
-                />
+                <div>
+                    <label>
+                    <input
+                        type="radio"
+                        name="type"
+                        value="ingreso"
+                        checked={formData.type === 'ingreso'}
+                        onChange={handleChange}
+                    />
+                    Ingreso
+                    </label>
+                    <label>
+                    <input
+                        type="radio"
+                        name="type"
+                        value="gasto"
+                        checked={formData.type === 'gasto'}
+                        onChange={handleChange}
+                    />
+                    Gasto
+                    </label>
+                </div>
             </div>
             <div>
                 <label>Importe</label>
@@ -59,6 +74,7 @@ const Form = () => {
                 name="amount"
                 value={formData.amount}
                 onChange={handleChange}
+                required
                 />
             </div>
             <div>
@@ -68,6 +84,7 @@ const Form = () => {
                 name="concept"
                 value={formData.concept}
                 onChange={handleChange}
+                required
                 />
             </div>
             <div>
@@ -76,6 +93,7 @@ const Form = () => {
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
+                required
                 >
                     <option value="supermercado">Supermercado</option>
                     <option value="ocio">Ocio</option>
@@ -88,7 +106,9 @@ const Form = () => {
                 type="date"
                 name="date"
                 value={formData.date}
-                onChange={handleChange}/>
+                onChange={handleChange}
+                required
+                />
             </div>
             <button type="submit">Añadir</button>
             </form>
