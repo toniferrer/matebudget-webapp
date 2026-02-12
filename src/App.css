@@ -1,0 +1,41 @@
+#root {
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.header {
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(242, 242, 242);
+  width: 1280px;
+}
+
+.header h1{
+  color: black;
+  font-size: 20px;
+}
+
+.footer {
+  display: inline-flex;
+  justify-content: space-between;
+  background-color: rgb(242, 242, 242);
+  color: black;
+  padding: 20px;
+  width: 1280px;
+}
+
+.footer p{
+  color: black;
+}
+
+.footer-link {
+  color: black;
+}
