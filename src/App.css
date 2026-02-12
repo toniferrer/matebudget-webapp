@@ -18,9 +18,41 @@
   width: 1280px;
 }
 
-.header h1{
+.header h1 {
   color: black;
   font-size: 20px;
+}
+
+.tableMoviments {
+  width: 100%;
+  padding: 20px;
+}
+
+.tableMoviments thead {
+  background-color: aliceblue;
+  height: 40px;
+}
+
+.tableMoviments tbody {
+  background-color: beige;
+}
+
+.tableMoviments th{
+  text-align: left;
+  padding-left: 10px;
+}
+
+.tableMoviments tfoot {
+  background-color: aliceblue;
+  height: 40px;
+}
+
+.buttonDelet {
+  color: white;
+  background-color: brown;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 2px;
 }
 
 .footer {
@@ -32,7 +64,7 @@
   width: 1280px;
 }
 
-.footer p{
+.footer p {
   color: black;
 }
 

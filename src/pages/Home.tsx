@@ -22,7 +22,7 @@ function Home() {
 
   useEffect(() => {
     const total = savedData.reduce((acc, item) => {
-      return item.type === 'ingreso' ? acc + item.amount : acc - item.amount;
+      return item.type === 'ingreso' ? acc + Number(item.amount) : acc - Number(item.amount);
     }, 0);
     setDinero(total);
   }, [savedData]);
@@ -32,10 +32,9 @@ function Home() {
       <MyHeader />
         <h2>Movimientos</h2>
         {savedData.length > 0 ? (
-          <table>
+          <table className='tableMoviments'>
             <thead>
               <tr>
-                <th>Tipo</th>
                 <th>Importe</th>
                 <th>Concepto</th>
                 <th>Categoría</th>
@@ -45,23 +44,23 @@ function Home() {
             <tbody>
             {savedData.map((item, index) => (
               <tr key={index}>
-                <th>{item.type}</th>
-                <th>{item.amount}€</th>
+                <th>{Number(item.amount).toFixed(2)} € {item.type}</th>
                 <th>{item.concept}</th>
                 <th>{item.category}</th>
                 <th>{item.date}</th>
               </tr>
             ))}
-              <tr>
-                <th></th>
-                <th>{dinero}€</th>
-              </tr>
             </tbody>
+            <tfoot>
+              <tr>
+                <th>{dinero.toFixed(2)} €</th>
+              </tr>
+            </tfoot>
           </table>
         ) : (
           <p>No hay movimientos aún. Añade el primero.</p>
         )}
-        <button onClick={() =>
+        <button className='buttonDelet' onClick={() =>
         localStorage.removeItem('formData')
         }>
         Eliminar todos los movimientos

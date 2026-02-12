@@ -2,7 +2,7 @@ import { useState} from 'react';
 
 interface FormData {
   type: string;
-  amount: string;
+  amount: number;
   concept: string;
   category: string;
   date: string;
@@ -11,7 +11,7 @@ interface FormData {
 const Form = () => {
   const [formData, setFormData] = useState<FormData>({
     type: 'gasto',
-    amount: '',
+    amount: 0,
     concept: '',
     category: 'ninguna',
     date: new Date().toISOString().split('T')[0],
@@ -32,7 +32,7 @@ const Form = () => {
     localStorage.setItem('formData', JSON.stringify(updatedData));
     setFormData({
       type: '',
-      amount: '',
+      amount: 0,
       concept: '',
       category: 'ninguna',
       date: '',
@@ -96,9 +96,9 @@ const Form = () => {
                 onChange={handleChange}
                 required
                 >
-                    <option value="supermercado">Supermercado</option>
-                    <option value="ocio">Ocio</option>
-                    <option value="ninguna">Ninguna</option>
+                    <option value="Supermercado">Supermercado</option>
+                    <option value="Ocio">Ocio</option>
+                    <option value="Ninguna">Ninguna</option>
                 </select>
             </div>
             <div>
