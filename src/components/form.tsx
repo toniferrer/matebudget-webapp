@@ -76,6 +76,7 @@ const Form = () => {
                 onChange={handleChange}
                 required
                 />
+                <p>€</p>
             </div>
             <div>
                 <label>Concepto</label>
