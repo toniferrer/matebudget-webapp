@@ -1,11 +1,20 @@
-import { useState } from 'react';
+import { useState} from 'react';
+
+interface FormData {
+  type: string;
+  amount: string;
+  concept: string;
+  category: string;
+  date: string;
+}
 
 const Form = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     type: '',
-    import: '',
+    amount: '',
     concept: '',
     category: 'ninguna',
+    date: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -18,7 +27,16 @@ const Form = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem('formData', JSON.stringify(formData));
+    const existingData = JSON.parse(localStorage.getItem('formData') || '[]');
+    const updatedData = [...existingData, formData];
+    localStorage.setItem('formData', JSON.stringify(updatedData));
+    setFormData({
+      type: '',
+      amount: '',
+      concept: '',
+      category: 'ninguna',
+      date: '',
+    });
     alert('Datos guardados en el navegador');
   };
 
@@ -28,7 +46,7 @@ const Form = () => {
             <div>
                 <label>Tipo</label>
                 <input
-                type="select"
+                type="text"
                 name="type"
                 value={formData.type}
                 onChange={handleChange}
@@ -38,8 +56,8 @@ const Form = () => {
                 <label>Importe</label>
                 <input
                 type="number"
-                name="import"
-                value={formData.import}
+                name="amount"
+                value={formData.amount}
                 onChange={handleChange}
                 />
             </div>
@@ -63,6 +81,14 @@ const Form = () => {
                     <option value="ocio">Ocio</option>
                     <option value="ninguna">Ninguna</option>
                 </select>
+            </div>
+            <div>
+                <label>Fecha</label>
+                <input
+                type="date"
+                name="date"
+                value={formData.date}
+                onChange={handleChange}/>
             </div>
             <button type="submit">Añadir</button>
             </form>
