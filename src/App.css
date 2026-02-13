@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .card {
@@ -27,7 +28,6 @@
   width: 100%;
   padding: 20px;
   color: black;
-  font-family:'Courier New', Courier, monospace;
 }
 
 .tableMoviments thead {
@@ -73,6 +73,33 @@
   padding: 5px;
   border-radius: 2px;
   border-style: none;
+}
+
+.form { 
+  padding: 20px;
+}
+
+.form input {
+  border-style: none;
+  background-color: rgb(247, 247, 247);
+  padding: 10px;
+}
+
+.form select {
+  border-style: none;
+  background-color: rgb(247, 247, 247);
+  padding: 10px;
+}
+
+.formSection label {
+  width: 100%;
+  display: block;
+}
+
+.formButton {
+  margin: 10px;
+  background-color: rgb(234, 234, 234);
+  color: black;
 }
 
 .footer {

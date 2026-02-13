@@ -8,7 +8,7 @@ interface FormData {
   date: string;
 }
 
-const Form = () => {
+ const Form = () => {
   const [formData, setFormData] = useState<FormData>({
     type: 'gasto',
     amount: 0,
@@ -67,18 +67,20 @@ const Form = () => {
                     </label>
                 </div>
             </div>
-            <div>
+            <div className='formSection'>
                 <label>Importe</label>
-                <input
-                type="number"
-                name="amount"
-                value={Number(formData.amount)}
-                onChange={handleChange}
-                required
-                />
-                <p>€</p>
+                <div>
+                    <input
+                    type="number"
+                    name="amount"
+                    value={Number(formData.amount)}
+                    onChange={handleChange}
+                    required
+                    />
+                    <p>€</p>
+                </div>
             </div>
-            <div>
+            <div className='formSection'>
                 <label>Concepto</label>
                 <input
                 type="text"
@@ -88,7 +90,7 @@ const Form = () => {
                 required
                 />
             </div>
-            <div>
+            <div className='formSection'>
                 <label>Categoría</label>
                 <select
                 name="category"
@@ -101,7 +103,7 @@ const Form = () => {
                     <option value="Ninguna">Ninguna</option>
                 </select>
             </div>
-            <div>
+            <div className='formSection'>
                 <label>Fecha</label>
                 <input
                 type="date"
@@ -111,10 +113,10 @@ const Form = () => {
                 required
                 />
             </div>
-            <button type="submit">Añadir</button>
+            <button className='formButton' type="submit">Añadir</button>
             </form>
         </div>
     );
 };
 
-export default Form
+export default Form;

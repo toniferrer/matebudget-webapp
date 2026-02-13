@@ -1,5 +1,5 @@
 import '../App.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import MyFooter from '../components/footer'
 import MyHeader from '../components/header'
 
@@ -36,7 +36,6 @@ function Home() {
   return (
     <>
       <MyHeader />
-        <h3>Movimientos</h3>
         {savedData.length > 0 ? (
           <table className='tableMoviments'>
             <thead>
@@ -48,6 +47,7 @@ function Home() {
                 <th>ACCIONES</th>
               </tr>
             </thead>
+
             <tbody>
             {savedData.map((item, index) => (
               <tr key={index}>
@@ -59,6 +59,7 @@ function Home() {
               </tr>
             ))}
             </tbody>
+
             <tfoot>
               <tr>
                 <th></th>
