@@ -13,7 +13,7 @@ const Form = () => {
     type: 'gasto',
     amount: 0,
     concept: '',
-    category: 'ninguna',
+    category: 'Ninguna',
     date: new Date().toISOString().split('T')[0],
   });
 
@@ -34,10 +34,10 @@ const Form = () => {
       type: '',
       amount: 0,
       concept: '',
-      category: 'ninguna',
+      category: '',
       date: '',
     });
-    alert('Datos guardados en el navegador');
+    window.location.reload()
   };
 
     return(
@@ -72,7 +72,7 @@ const Form = () => {
                 <input
                 type="number"
                 name="amount"
-                value={formData.amount}
+                value={Number(formData.amount)}
                 onChange={handleChange}
                 required
                 />
@@ -83,7 +83,7 @@ const Form = () => {
                 <input
                 type="text"
                 name="concept"
-                value={formData.concept}
+                value={(formData.concept).toUpperCase()}
                 onChange={handleChange}
                 required
                 />

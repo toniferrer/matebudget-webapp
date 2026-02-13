@@ -27,44 +27,51 @@ function Home() {
     setDinero(total);
   }, [savedData]);
 
+  const deleteMovement = (indexToDelete: number) => {
+    const updatedData = savedData.filter((_, index) => index !== indexToDelete);
+    localStorage.setItem('formData', JSON.stringify(updatedData));
+    setSavedData(updatedData);
+  };
+
   return (
     <>
       <MyHeader />
-        <h2>Movimientos</h2>
+        <h3>Movimientos</h3>
         {savedData.length > 0 ? (
           <table className='tableMoviments'>
             <thead>
               <tr>
-                <th>Importe</th>
-                <th>Concepto</th>
-                <th>Categoría</th>
-                <th>Fecha</th>
+                <th>FECHA</th>
+                <th>CONCEPTO</th>
+                <th>CATEGORÍA</th>
+                <th>IMPORTE</th>
+                <th>ACCIONES</th>
               </tr>
             </thead>
             <tbody>
             {savedData.map((item, index) => (
               <tr key={index}>
-                <th>{Number(item.amount).toFixed(2)} € {item.type}</th>
-                <th>{item.concept}</th>
-                <th>{item.category}</th>
                 <th>{item.date}</th>
+                <th>{(item.concept).toUpperCase()}</th>
+                <th>{(item.category).toUpperCase()}</th>
+                <th className = {item.type === 'ingreso' ? 'ingreso' : 'gasto'}>{item.type === 'ingreso' ? '+' : '-'}{Number(item.amount).toFixed(2)}€</th>
+                <th><button className='buttonDelet' onClick = {() => deleteMovement(index)}>ELIMINAR</button></th>
               </tr>
             ))}
             </tbody>
             <tfoot>
               <tr>
-                <th>{dinero.toFixed(2)} €</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>TOTAL {dinero.toFixed(2)}€</th>
+                <th></th>
               </tr>
             </tfoot>
           </table>
         ) : (
           <p>No hay movimientos aún. Añade el primero.</p>
         )}
-        <button className='buttonDelet' onClick={() =>
-        localStorage.removeItem('formData')
-        }>
-        Eliminar todos los movimientos
-        </button>
       <MyFooter />
     </>
   )

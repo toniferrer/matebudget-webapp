@@ -26,15 +26,17 @@
 .tableMoviments {
   width: 100%;
   padding: 20px;
+  color: black;
+  font-family:'Courier New', Courier, monospace;
 }
 
 .tableMoviments thead {
-  background-color: aliceblue;
+  background-color: rgb(225, 225, 225);
   height: 40px;
 }
 
 .tableMoviments tbody {
-  background-color: beige;
+  background-color: rgb(247, 247, 247);
 }
 
 .tableMoviments th{
@@ -43,16 +45,34 @@
 }
 
 .tableMoviments tfoot {
-  background-color: aliceblue;
+  background-color: rgb(225, 225, 225);
   height: 40px;
 }
 
+.ingreso {
+  color: green;
+}
+
+.gasto {
+  color: brown;
+}
+
 .buttonDelet {
+  color: black;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 2px;
+  border-style: none;
+}
+
+.buttonDelet:hover {
   color: white;
   background-color: brown;
   margin: 5px;
   padding: 5px;
   border-radius: 2px;
+  border-style: none;
 }
 
 .footer {
