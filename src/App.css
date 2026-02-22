@@ -24,15 +24,16 @@
   font-size: 20px;
 }
 
-.tableMoviments {
+.body {
+  display: inline-flex;
   width: 100%;
-  padding: 20px;
-  color: black;
 }
 
-.tableMoviments thead {
-  background-color: rgb(225, 225, 225);
-  height: 40px;
+.tableMoviments {
+  width: 75%;
+  padding: 20px;
+  color: black;
+  height: fit-content;
 }
 
 .tableMoviments tbody {
@@ -100,6 +101,15 @@
   margin: 10px;
   background-color: rgb(234, 234, 234);
   color: black;
+}
+
+.rightCard {
+  width: 25%;
+  text-align: left;
+  background-color: aliceblue;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .footer {
