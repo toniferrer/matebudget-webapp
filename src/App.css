@@ -40,7 +40,7 @@
   background-color: rgb(247, 247, 247);
 }
 
-.tableMoviments th{
+.tableMoviments th {
   text-align: left;
   padding-left: 10px;
 }
@@ -76,7 +76,7 @@
   border-style: none;
 }
 
-.form { 
+.form {
   padding: 20px;
 }
 

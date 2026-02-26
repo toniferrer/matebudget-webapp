@@ -31,7 +31,7 @@ function Home() {
   useEffect(() => {
     let aux = 0;
     savedData.forEach((item) => {
-      if(item.category === 'Supermercado') {
+      if (item.category === 'Supermercado') {
         aux += item.type === 'ingreso' ? Number(item.amount) : - Number(item.amount);
       }
     });
@@ -51,15 +51,15 @@ function Home() {
         {savedData.length > 0 ? (
           <table className='tableMoviments'>
             <tbody>
-            {savedData.map((item, index) => (
-              <tr key={index}>
-                <th>{item.date}</th>
-                <th>{(item.concept).toUpperCase()}</th>
-                <th>{(item.category).toUpperCase()}</th>
-                <th className = {item.type === 'ingreso' ? 'ingreso' : 'gasto'}>{item.type === 'ingreso' ? '+' : '-'}{Number(item.amount).toFixed(2)}€</th>
-                <th><button className='buttonDelet' onClick = {() => deleteMovement(index)}>🗑️</button></th>
-              </tr>
-            ))}
+              {savedData.map((item, index) => (
+                <tr key={index}>
+                  <th>{item.date}</th>
+                  <th>{(item.concept).toUpperCase()}</th>
+                  <th>{(item.category).toUpperCase()}</th>
+                  <th className={item.type === 'ingreso' ? 'ingreso' : 'gasto'}>{item.type === 'ingreso' ? '+' : '-'}{Number(item.amount).toFixed(2)}€</th>
+                  <th><button className='buttonDelet' onClick={() => deleteMovement(index)}>🗑️</button></th>
+                </tr>
+              ))}
             </tbody>
 
             <tfoot>
@@ -73,25 +73,27 @@ function Home() {
             </tfoot>
           </table>
         ) : (
-          <p>No hay movimientos aún. Añade el primero.</p>
+          <div className='tableMoviments'>
+            <p>No hay movimientos aún. Añade el primero.</p>
+          </div>
         )}
 
         <div className='rightCard'>
-        <h4>Categorías</h4>
-        <table>
-          <tr>
-            <th>Supermercado {Number (totalCategoria).toFixed(2)}€</th>
-          </tr>
-          <tr>
-            <th>Ocio {Number (0).toFixed(2)}€</th>
-          </tr>
-          <tr>
-            <th>Otros {Number (0).toFixed(2)}€</th>
-          </tr>
-        </table>
+          <h4>Categorías</h4>
+          <table>
+            <tr>
+              <th>Supermercado {Number(totalCategoria).toFixed(2)}€</th>
+            </tr>
+            <tr>
+              <th>Ocio {Number(0).toFixed(2)}€</th>
+            </tr>
+            <tr>
+              <th>Otros {Number(0).toFixed(2)}€</th>
+            </tr>
+          </table>
         </div>
 
-        </div>
+      </div>
       <MyFooter />
     </>
   )
