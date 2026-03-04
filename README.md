@@ -4,5 +4,7 @@ Controla tus finanzas personales. Pequeño proyecto de web-app para poder hacer 
 ## ✨ Características
 Añadir y eliminar movimientos.
 Calcular totales.
+Borrar todos los movimientos.
 
-# React + TypeScript + Vite
+## 🛠️ Tecnologías
+React + TypeScript + Vite

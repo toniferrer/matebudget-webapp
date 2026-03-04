@@ -67,7 +67,7 @@ function Home() {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th>TOTAL {dinero.toFixed(2)}€</th>
+                <th>{dinero.toFixed(2)}€</th>
                 <th></th>
               </tr>
             </tfoot>
@@ -78,20 +78,26 @@ function Home() {
           </div>
         )}
 
-        <div className='rightCard'>
-          <h4>Categorías</h4>
-          <table>
-            <tr>
-              <th>Supermercado {Number(totalCategoria).toFixed(2)}€</th>
-            </tr>
-            <tr>
-              <th>Ocio {Number(0).toFixed(2)}€</th>
-            </tr>
-            <tr>
-              <th>Otros {Number(0).toFixed(2)}€</th>
-            </tr>
-          </table>
-        </div>
+        {savedData.length > 0 ? (
+          <div className='rightCard'>
+            <h4>Categorías</h4>
+            <table>
+              <tr>
+                <th>Supermercado {Number(totalCategoria).toFixed(2)}€</th>
+              </tr>
+              <tr>
+                <th>Ocio {Number(0).toFixed(2)}€</th>
+              </tr>
+              <tr>
+                <th>Otros {Number(0).toFixed(2)}€</th>
+              </tr>
+            </table>
+          </div>
+        ) : (
+          <div className='rightCard'>
+            <h4>Categorías</h4>
+          </div>
+        )}
 
       </div>
       <MyFooter />
